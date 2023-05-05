@@ -43,7 +43,7 @@ def overeni_tel(tel_cislo):
             return True
         else:
             return False
-    elif len(tel_cislo) == 13: # třináctimístné číslo s předvolbou +420
+    elif len(tel_cislo) == 13: 
         if tel_cislo[0:4] == "+420" and tel_cislo[1:].isdigit():
             return True
         else:
@@ -54,7 +54,7 @@ def overeni_tel(tel_cislo):
 
 def vypocet_ceny(zprava):
     delka_zpravy = len(zprava)
-    cena_zpravy = (math.ceil(delka_zpravy/180 )) * 3 # cena 3 Kč za každých 180 znaků
+    cena_zpravy = (math.ceil(delka_zpravy/180 )) * 3 
     return cena_zpravy
 
 
