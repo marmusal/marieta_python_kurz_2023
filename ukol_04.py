@@ -13,6 +13,7 @@ Tipy:
 Nemusíte kontrolovat, zda uživatel zadal skutečně číslo, či zda jsou tam i jiné znaky. To jsme v kurzu zatím neřešili.
 Pro kontrolu předvolby použijte slicing (viz první lekce) pro získání prvních 4 znaků řetězce. Ty porovnejte s řetězcem "+420".'''
 
+'''
 import math
 
 tel_cislo = input("Zadejte prosím telefonní číslo pro zaslání SMS ve tvaru +420xxxxxxxxx : ")
@@ -31,6 +32,40 @@ else:
     cena_sms = pocet_zprav*3
     print("Cena Vaší SMS zprávy bude" , cena_sms , "Kč! ")
 
+'''
 
+#OPRAVA S POUŽITÍM FUNKCÍ
+import math
+
+def overeni_tel(tel_cislo):
+    if len(tel_cislo) == 9: # devítimístné číslo
+        if tel_cislo.isdigit():
+            return True
+        else:
+            return False
+    elif len(tel_cislo) == 13: # třináctimístné číslo s předvolbou +420
+        if tel_cislo[0:4] == "+420" and tel_cislo[1:].isdigit():
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
+def vypocet_ceny(zprava):
+    delka_zpravy = len(zprava)
+    cena_zpravy = (math.ceil(delka_zpravy/180 )) * 3 # cena 3 Kč za každých 180 znaků
+    return cena_zpravy
+
+
+tel_cislo = input("Zadejte číslo: ")
+
+if not overeni_tel(tel_cislo):
+    print("Telefonní číslo není ve správném tvaru.")
+
+else:
+    zprava = input("Zadejte zprávu, kterou chcete zaslat: ")
+    cena_zpravy = vypocet_ceny(zprava)
+    print(f"Zpráva bude stát {cena_zpravy} Kč.")
 
 
