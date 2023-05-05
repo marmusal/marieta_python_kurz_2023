@@ -38,7 +38,7 @@ else:
 import math
 
 def overeni_tel(tel_cislo):
-    if len(tel_cislo) == 9: # devítimístné číslo
+    if len(tel_cislo) == 9:
         if tel_cislo.isdigit():
             return True
         else:
