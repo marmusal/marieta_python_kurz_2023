@@ -34,3 +34,5 @@ elif volba == "skoda":
 else:
     print("Neplatná volba značky.")
 
+
+
